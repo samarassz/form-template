@@ -4,29 +4,29 @@
 
 // Garante que ao menos 2 nomes sejam informados e que a primeira letra esteja em maiúsculo
 function validarNome() {
-  var nome = document.getElementById('nome').value;
-  var nomeRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/;
+  const nome = document.getElementById('nome').value;
+  const nomeRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/;
   return !nomeRegex.test(nome) ? (alert('Nome Inválido'), false) : true;
 }
 
 // Aceita emails terminados em .com ou .br, com letras, números, ponto . e underline _
 function validarEmail() {
-  var email = document.getElementById('email').value;
-  var emailRegex = /^((\w)+(\.)?(\w)+@(\w)+\.com)(\.br)?$/i;
+  const email = document.getElementById('email').value;
+  const emailRegex = /^((\w)+(\.)?(\w)+@(\w)+\.com)(\.br)?$/i;
   return !emailRegex.test(email) ? (alert('Email Inválido'), false) : true;
 }
 
 // Garante que o formato do CPF seja apenas números ou com pontos e traço tal qual o documento
 function validarCPF() {
-  var cpf = document.getElementById('cpf').value;
-  var cfpRegex = /(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))/;
+  const cpf = document.getElementById('cpf').value;
+  const cfpRegex = /(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))/;
   return !cfpRegex.test(cpf) ? (alert('CPF Inválido'), false) : true;
 }
 
 // Telefone fixo com DDD e 8 dígitos, com ou sem ( ) e -
 function validarTel() {
-  var telefone = document.getElementById('telefone').value;
-  var telefoneRegex =
+  const telefone = document.getElementById('telefone').value;
+  const telefoneRegex =
     /^(\([0-9]{2}\) ?[0-9]{4}\-?[0-9]{4})|([0-9]{2} ?[0-9]{8})$/;
   return !telefoneRegex.test(telefone)
     ? (alert('Telefone Inválido'), false)
@@ -35,8 +35,8 @@ function validarTel() {
 
 // Celular com DDD, dígito 9 opcional, com ou sem ( ) e -
 function validarCel() {
-  var celular = document.getElementById('celular').value;
-  var celularRegex =
+  const celular = document.getElementById('celular').value;
+  const celularRegex =
     /^(\([0-9]{2}\) ?[0-9]{4,5}\-?[0-9]{4})|([0-9]{2} ?[0-9]{8,9})$/;
   return !celularRegex.test(celular)
     ? (alert('Celular Inválido'), false)
@@ -45,16 +45,16 @@ function validarCel() {
 
 // Aceita apenas números para o endereço residencial
 function validarNumero() {
-  var numero = document.getElementById('numero').value;
-  var numeroRegex = /^[0-9]+$/;
+  const numero = document.getElementById('numero').value;
+  const numeroRegex = /^[0-9]+$/;
   return !numeroRegex.test(numero)
     ? (alert('Digite o número da residência'), false)
     : true;
 }
 
 // Esta função pega o nome dos estados e atribui um ID a eles, adicionando-os aos Select
-var selectUF = document.getElementById('selectUF');
-var selectCidades = document.getElementById('selectCidades');
+const selectUF = document.getElementById('selectUF');
+const selectCidades = document.getElementById('selectCidades');
 function popularEstados() {
   fetch(
     'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome'
@@ -123,8 +123,8 @@ function pesquisaCEP(cep) {
 
 // Garante que o CEP seja apenas números ou com um - que é retirado pelo .replace posteriormente
 function validarCEP() {
-  var cep = document.getElementById('cep').value;
-  var cepRegex = /[0-9]{5}-?[0-9]{3}/;
+  const cep = document.getElementById('cep').value;
+  const cepRegex = /[0-9]{5}-?[0-9]{3}/;
   let cepValido = '';
 
   return !cepRegex.test(cep)
