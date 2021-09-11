@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Title -->
+    <title>Form Template</title>
+    <!-- Icon -->
+    <link rel="icon" href="_assets/icon.svg" type="image/svg+xml" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="_css/style.css" />
+
+  </head>
+
+  <body class="container">
+    <header>
+      <h1>Formulário Super Legal</h1>
+      <h3>...usando uma validação simples em REGEX</h3>
+
+      <hr />
+    </header>
+
+    <main class="container">
+      <form class="d-lg-flex justify-content-around align-items-start">
+        <section class="col-sm-12 col-lg-5">
+          <h2>Dados Pessoais</h2>
+          <label for="nome" class="form-label">Nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            placeholder="Nome Completo"
+
+            onblur="validarNome()"
+          />
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="seu_email@email.com | seu.email@email.com.br"
+
+            onblur="validarEmail()"
+          />
+          <label for="cpf" class="form-label">CPF:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cpf"
+            placeholder="123.456.789-00 | 12345678900"
+
+            onblur="validarCPF()"
+          />
+          <label for="telefone" class="form-label">Telefone:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="telefone"
+            placeholder="(00) 0000-0000 | 00 00000000"
+
+            onblur="validarTel()"
+          />
+          <label for="celular" class="form-label">Celular:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="celular"
+            placeholder="(00) 90000-0000 | 00 00000000"
+
+            onblur="validarCel()"
+          />
+        </section>
+
+        <hr />
+
+        <section class="col-sm-12 col-lg-5">
+          <h2>Endereço</h2>
+
+          <div class="d-flex justify-content-between">
+            <!-- Usando selects -->
+            <div class="col-6">
+              <label for="selectUF" class="form-label">Estado:</label>
+              <select id="selectUF" class="form-select">
+                <option>Selecione seu Estado</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="selectCidades" class="form-label">Cidade:</label>
+              <select id="selectCidades" class="form-select" disabled>
+                <option>Selecione sua Cidade</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <!-- Usando inputs  -->
+            <div class="col-6">
+              <label for="cep" class="form-label">CEP:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cep"
+                placeholder="00000-000 | 00000000"
+
+                onblur="validarCEP()"
+                onchange="limpaCEP()"
+              />
+            </div>
+
+            <div class="col-6">
+              <label for="numero" class="form-label">Número:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="numero"
+                placeholder="1234"
+
+                onblur="validarNumero()"
+              />
+            </div>
+          </div>
+
+          <!-- Autocompletado com a API -->
+          <label for="logradouro" class="form-label">Logradouro:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="logradouro"
+            disabled
+          />
+
+          <div class="d-flex justify-content-between">
+            <div class="col-6">
+              <label for="bairro" class="form-label">Bairro:</label>
+              <input type="text" class="form-control" id="bairro" disabled />
+            </div>
+
+            <div class="col-6">
+              <label for="cidade" class="form-label">Cidade:</label>
+              <input type="text" class="form-control" id="cidade" disabled />
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-2">
+              <label for="estado" class="form-label">Estado:</label>
+              <input type="text" class="form-control" id="estado" disabled />
+            </div>
+
+            <div class="col-8">
+              <label for="complemento" class="form-label">Complemento:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="complemento"
+                placeholder="Casa, Apartamento, ..."
+              />
+            </div>
+          </div>
+        </section>
+      </form>
+
+      <section class="d-lg-flex mt-4 justify-content-around align-items-start">
+        <!-- submit -->
+        <button
+          type="button" 
+          class="btn btn-light col-2"
+          id="enviar"
+          onclick="validarTudo()"
+        >
+          Enviar
+        </button>
+      </section>
+    </main>
+    <footer>
+      <hr />
+      <p>
+        * este formulário usa dados do
+        <a href="https://servicodados.ibge.gov.br/api/docs/localidades">IBGE</a>
+        e <a href="https://viacep.com.br/">ViaCEP</a> para completar os
+        endereços!
+      </p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="_js/regexValidation.js"></script>
+  </body>
+</html>

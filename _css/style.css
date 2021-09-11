@@ -1,0 +1,32 @@
+/* nada disso é importante */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+  --poppins: 'Poppins', sans-serif;
+  --coral: #d68465;
+  --white: #f7f7dd;
+  --red: #641616;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--white);
+  font-family: var(--poppins);
+}
+header {
+  margin-top: 25px;
+}
+.form-control, .form-select, .form-label {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.btn-light {
+  border: 1px solid var(--red);
+}
+.btn-light:hover {
+  background-color: var(--coral);
+}
